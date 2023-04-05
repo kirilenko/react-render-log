@@ -1,21 +1,16 @@
 import { FC } from 'react'
-import { RenderLogProvider } from 'react-render-log'
+import { withRenderLogProvider } from 'react-render-log'
 
 import { Home } from '@pages/home'
 
 import './styles/global.css'
 
-const App: FC = () => (
-  <RenderLogProvider
-    colors={{
-      extraRender: 'red',
-      firstRender: 'green',
-    }}
-    debugEnabled={import.meta.env.MODE !== 'production'}
-    isStrictMode={import.meta.env.MODE === 'development'}
-  >
-    <Home />
-  </RenderLogProvider>
-)
+const App: FC = () => <Home />
 
-export default App
+export default withRenderLogProvider.apply(
+  {
+    debugEnabled: import.meta.env.MODE !== 'production',
+    isStrictMode: import.meta.env.MODE === 'development',
+  },
+  [App],
+)
