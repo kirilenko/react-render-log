@@ -1,7 +1,7 @@
 {
   "name": "react-render-log",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React render-log. This package logs the rendering of components in console by debug and highlights the extra rendering.",
   "author": "Kirilenko",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/kirilenko/react-render-log#readme",
   "engines": {
     "node": "18",
-    "pnpm": "7"
+    "pnpm": "8"
   },
   "types": "./build/index.d.ts",
   "type": "module",

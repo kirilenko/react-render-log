@@ -119,7 +119,7 @@ export default withRenderLog(Smt)
     }
     ```
 
-  Customize colors. By default, it is:
+  Customize colors. By default, they are:
 
   ```
   {
@@ -127,6 +127,12 @@ export default withRenderLog(Smt)
     extraRender: 'orange',
   }
   ```
+
+ - ### timeToLive (optional)
+
+  Type: `number`
+
+  Time to live for the extra renderings. By default, it is `500` ms.
 
 ## License
 

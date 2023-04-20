@@ -13,11 +13,14 @@ const defaultColors: RenderLogColors = {
   firstRender: 'lightgreen',
 }
 
+const defaultTimeToLive = 500
+
 export const RenderLogProvider: FC<RenderLogProviderProps> = ({
   children,
   colors = defaultColors,
   debugEnabled,
   isStrictMode,
+  timeToLive = defaultTimeToLive,
 }) => {
   const value: RenderLogContextValue = useMemo<RenderLogContextValue>(() => {
     if (!debugEnabled) {
@@ -25,8 +28,8 @@ export const RenderLogProvider: FC<RenderLogProviderProps> = ({
     }
 
     return (displayName: string) =>
-      renderLogCreator({ cacheKey: displayName, colors, isStrictMode })
-  }, [colors, debugEnabled, isStrictMode])
+      renderLogCreator({ colors, isStrictMode, key: displayName, timeToLive })
+  }, [colors, debugEnabled, isStrictMode, timeToLive])
 
   return (
     <RenderLogContext.Provider {...{ value }}>

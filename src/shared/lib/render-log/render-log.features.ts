@@ -41,8 +41,11 @@ const setCache = (key: string, repetitionsCount: number): void => {
 
 const getCache = (key: string): CacheRecord | null => cache[key] || null
 
-const timeToLive = 500
-const getUpdatedRepetitionsCount = (key: string): number => {
+const getUpdatedRepetitionsCount = (props: {
+  key: string
+  timeToLive: number
+}): number => {
+  const { key, timeToLive } = props
   const updatedRepetitionsCount =
     getCache(key) && Date.now() - getCache(key)!.timestamp < timeToLive
       ? getCache(key)!.repetitionsCount + 1
@@ -53,13 +56,14 @@ const getUpdatedRepetitionsCount = (key: string): number => {
 }
 
 export const renderLogCreator = (props: {
-  cacheKey: string
+  key: string
   colors: RenderLogColors
   isStrictMode: boolean
+  timeToLive: number
 }): RenderLog => {
-  const { cacheKey, colors, isStrictMode } = props
+  const { colors, isStrictMode, key, timeToLive } = props
 
-  const repetitionsCount = getUpdatedRepetitionsCount(cacheKey)
+  const repetitionsCount = getUpdatedRepetitionsCount({ key, timeToLive })
 
   const currentCase = getLogCases({ colors, isStrictMode })[
     repetitionsCount > 2 ? 2 : repetitionsCount
@@ -76,7 +80,7 @@ export const renderLogCreator = (props: {
       message || (getMessage && getMessage(repetitionsCount)) || ''
 
     const totalMessage: [string, string] = [
-      `%c • ${cacheKey + currentCaseMessage + argsAsString}`,
+      `%c • ${key + currentCaseMessage + argsAsString}`,
       `color:${currentCase.color}`,
     ]
 

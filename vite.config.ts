@@ -24,9 +24,7 @@ export default defineConfig(() => ({
     target: 'esnext',
   },
   plugins: [
-    dts({
-      include: ['src/shared/lib/render-log/'],
-    }),
+    dts({ include: ['src/shared/lib/render-log/'] }), // - before react
     react(),
   ],
   resolve: {

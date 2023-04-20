@@ -13,6 +13,7 @@ export type OwnRenderLogProviderProps = {
   colors?: RenderLogColors
   debugEnabled: boolean
   isStrictMode: boolean
+  timeToLive?: number
 }
 
 export type RenderLogProviderProps =

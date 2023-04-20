@@ -26,7 +26,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7 # - get from package.json: engines.pnpm
+          version: 8 # - get from package.json: engines.pnpm
           run_install: false
 
       - name: Get pnpm store directory
