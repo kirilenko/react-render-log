@@ -34,7 +34,6 @@
     "test:ci": "vitest --run",
     "prebuild": "rimraf ./build",
     "build": "tsc && vite build",
-    "preview": "vite preview",
     "deploy": "pnpm build && npm publish --access public"
   },
   "dependencies": {
