@@ -8,3 +8,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <App />
   </StrictMode>,
 )
+
+// TODO - create src/shared/lib/render-log/index.d.ts
