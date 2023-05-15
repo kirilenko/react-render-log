@@ -43,7 +43,10 @@ or
 
 ```typescript jsx
 import { FC } from 'react'
-import { withRenderLogProvider } from 'react-render-log'
+import {
+  OwnRenderLogProviderProps,
+  withRenderLogProvider, 
+} from 'react-render-log'
 
 import { Home } from '@pages/home'
 
@@ -53,7 +56,7 @@ export default withRenderLogProvider.apply(
   {
     debugEnabled: import.meta.env.MODE !== 'production',
     isStrictMode: import.meta.env.MODE === 'development',
-  },
+  } satisfies OwnRenderLogProviderProps,
   [App],
 )
 ```
