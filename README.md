@@ -76,7 +76,7 @@ const Home: FC = () => (
   </div>
 )
 
-export default withRenderLog(Home)
+export default withRenderLog(Home) // or withRenderLog(Home, 'SomeCustomName')
 ```
 
 By render list of the same components, you should use `renderLogId` prop (like a `key`).

@@ -12,4 +12,4 @@ const Home: FC = () => (
   </div>
 )
 
-export default withRenderLog(Home)
+export default withRenderLog(Home, 'HomePage')

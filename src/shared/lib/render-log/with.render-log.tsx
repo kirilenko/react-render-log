@@ -9,9 +9,13 @@ import { useRenderLog } from './use.render-log'
 
 export const withRenderLog: WithRenderLog = <Props extends {}>(
   Component: ComponentType<PropsWithRenderLog<Props>>,
+  customDisplayName?: string,
 ): ComponentType<PropsWithRenderLogId<Props>> => {
   const displayName =
-    Component.displayName || Component.name || 'Unknown Component'
+    customDisplayName ||
+    Component.displayName ||
+    Component.name ||
+    'Unknown Component'
 
   return (props: PropsWithRenderLogId<Props>): ReactElement<Props> => {
     const getRenderLog = useRenderLog()

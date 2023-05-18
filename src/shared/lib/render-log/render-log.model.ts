@@ -29,6 +29,7 @@ export type PropsWithRenderLogId<Props extends {}> = Props & {
 
 export type WithRenderLog = <Props extends {}>(
   Component: ComponentType<PropsWithRenderLog<Props>>,
+  customDisplayName?: string,
 ) => ComponentType<PropsWithRenderLogId<Props>>
 
 export type WithRenderLogProvider = <Props extends {}>(
